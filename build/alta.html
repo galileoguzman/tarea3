@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Inicio del Sistema Java </title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/estilos.css">
+
+	</head>
+	<body>
+		<!--ENCABEZADO DE LA PÁGINA WEB Y EL MENÚ DE NAVEGACIÓN-->
+		<header>
+			<h1>Bienvenido al sistema</h1>
+			<nav>
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="alta.html">Alta de Usuarios</a></li>
+					<li><a href="consulta.html">Consulta de Usuario</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<section>
+			<h2>Alta de usuarios</h2>
+
+			<!--FORMULARIO DE ALTA DE USUARIOS-->
+			<form action="ServletControlador" method="post" name="alta" id="alta">
+				<label>
+					id
+					<input type="text" id="id" name="id">
+				</label><br>
+				<label>
+					Login
+					<input type="text" id="login" name="login">
+				</label><br>
+				<label>
+					Password
+					<input type="password" id="password" name="password">
+				</label>
+				<input type="submit" name="operacion" value="alta" class="boton buscar"/>
+			</form>
+
+		</section>
+
+
+	</body>
+</html>

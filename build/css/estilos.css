@@ -1,0 +1,103 @@
+*{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+form{
+	margin: 0 auto;
+	width: 50%;
+}
+form input{
+	font-size: 1.1em;
+	margin: 0.5em 0;
+	width: 80%;
+}
+header{
+	background-color: #8A0808;
+	color: #eee;
+	padding: 2.5em 0 0;
+	width: 100%;
+}
+nav{
+	background-color: #d8d8d8;
+	padding: 1em 0;
+	margin: 0 auto;
+	width: 100%;
+}
+nav ul{
+	list-style: none;
+	margin: 0;
+	text-align: left;
+}
+nav li{
+	display: inline-block;
+	list-style: none;
+	padding-left: 1.5em;
+	vertical-align: middle;
+	text-align: left;
+}
+nav a{
+	color: #8A0808;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-0-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+nav a:hover{
+	text-shadow: 0 5px 5px rgba(0,0,0,0.7);
+
+}
+section{
+	background-color: #d8d8d8;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
+	padding: 2em 2em 3em;
+	margin: 2em auto;
+	width: 80%;
+}
+section h2, h3{
+	margin: 1.4em;
+}
+section p{
+	font-size: 1.5em;
+}
+.boton{
+	color: #eee;
+	padding: 1em 2.5em;
+	text-transform: uppercase;
+}
+.buscar{
+	background-color: #2E9AFE;
+}
+.error{
+
+	box-shadow: inset 0 0 10px #FA5858;
+	color: #FA5858;
+}
+.eliminar{
+	background-color: #FA5858;
+}
+.exito{
+	box-shadow: inset 0 0 10px #2E9AFE;
+	color: #2E9AFE;
+
+}
+
+.galileo{
+	color: #2E9AFE;
+}
+.mensaje{
+	background-color: #eee;
+	padding: 0.8em 0;
+}

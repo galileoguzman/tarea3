@@ -1,5 +1,7 @@
+//Definicion del paquete de la aplicacion
 package tarea3;
 
+//Import de librerias para el uso de Vector y HTTPServLet
 import java.util.*;
 import java.io.*;
 import javax.servlet.*;
@@ -11,12 +13,28 @@ public class ServletProcesamientoFinal extends HttpServlet
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
 	{
-		response.sendRedirect("/tarea2/index.html");
+		/**
+		*
+		* Implementacion de una Peticion (request) por el metodo Get
+		* En dado caso de ser consultado el ServletContenedor por dicho metodo
+		* hara una redireccion (sendRedirect) a la pagina de inicio
+		*
+		**/
+		response.sendRedirect("/tarea3/index.html");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 											throws ServletException, IOException
 	{
+		/**
+		*
+		* Implementacion de una Peticion (request) por el metodo Post
+		* recibe toda la peticion y sus atributos que han sido agregados
+		* durante el procesamiento de los Servlets anteriores
+		* Se encarga de mostrar la inforamacion (html) de acuerdo a la
+		* operacion y el resultado obetnido en el ServletContenedor
+		*
+		**/
 		
 		response.setContentType("text/html");
 		this.html = response.getWriter();
@@ -70,10 +88,19 @@ public class ServletProcesamientoFinal extends HttpServlet
 			if (usuarios == null) {
 				this.html.println("<h2>Al parecer la BD esta vacia</h2>");
 			}else{
+				this.html.println("<h2>Usuarios agregados actualmente</h2>"+
+					"<table id=\"todosUsuarios\">"+
+					"<thead><tr>"+
+					"<th>ID</th>"+
+					"<th>LOGIN</th>"+
+					"<th>PASSWORD</th>"+
+					"</tr></thead>"+
+					"<tbody>");
 				for(int i=0; i<usuarios.size(); i++){
 					Usuario obj = (Usuario) usuarios.elementAt(i); 
-			       	this.html.println("<p>UsuarioID " + obj.getId() + " Usuario " + obj.getLogin() + " UsuarioPassword " + obj.getPassword() + "</p>");
+			       	this.html.println("<tr> <th>" + obj.getId() + " </th><th> " + obj.getLogin() + " </th><th> " + obj.getPassword() + "</th></tr>");
 		     	}
+		     	this.html.println("</tbody></table>");
 			}
 
 		}

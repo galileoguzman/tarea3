@@ -1,5 +1,7 @@
+//Definicion del paquete de la aplicacion
 package tarea3;
 
+//Import de librerias para el uso de Vector, SQL y DataSource
 import java.sql.*;
 import javax.naming.*;
 import java.util.*;
@@ -7,6 +9,7 @@ import javax.sql.*;
 
 public class DAOEjercicio
 {
+    //Propiedad conexion que se usara para crear y destruir una conexion con la bd
 	private Connection con;
 
 	public DAOEjercicio()
@@ -71,7 +74,12 @@ public class DAOEjercicio
 
 	public int altaUsuario(Usuario user)
 	{
-        System.out.println("Metodo altaUsuario parametros ");
+        /**
+        * Metodo altaUsuario recibe como parametro un obj de la clase Usuario
+        * el cual a traves de sus metodos de extracion de datos se pasaran
+        * como parametros al query SQL. Retorna 1 exito -1 fallido de la
+        * operacion
+        **/
 		try
 		{
 			if(!this.con.isClosed())
@@ -97,7 +105,7 @@ public class DAOEjercicio
     	/**
     	* Metodo consultarUsuario recibe como parametro un obj usuario
     	* por el cual consultara su ID para poder compararlo en la
-    	* Base de Datos
+    	* Base de Datos y retorna el un obj de tipo Usuario
     	**/
     	Usuario uResultado = new Usuario();
     	try
@@ -168,6 +176,12 @@ public class DAOEjercicio
 
     public int eliminarUsuario(Usuario user)
     {
+        /**
+        * Metodo eliminarUsuario recibe como parametro un obj usuario
+        * por el cual consultara su ID para poder compararlo en la
+        * Base de Datos, en caso de encontrarlo lo elimina con un
+        * Query SQL, Retorna 1 exito -1 fracaso
+        **/
     	try
     	{
     		if(!this.con.isClosed())

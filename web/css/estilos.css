@@ -67,10 +67,27 @@ section{
 	width: 80%;
 }
 section h2, h3{
+	color: #424242;
 	margin: 1.4em;
+	text-shadow: 2px 2px 5px rgba(125,8,8,0.8);
 }
 section p{
 	font-size: 1.5em;
+}
+#todosUsuarios{
+	background-color: #e6e6e6;
+	margin: 0 auto;
+}
+
+#todosUsuarios th{
+	padding: 0.9em;
+}
+#todosUsuarios thead{
+	background-color: #e6e6e6;
+}
+#todosUsuarios tbody{
+	background-color: #b40404;
+	color: #eee;
 }
 .boton{
 	color: #eee;

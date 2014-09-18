@@ -1,5 +1,7 @@
+//Definicion del paquete de la aplicacion
 package tarea3;
 
+//Import de librerias para el uso de Vector y HTTPServLet
 import java.util.*;
 import java.io.*;
 import javax.servlet.*;
@@ -8,28 +10,43 @@ import java.sql.*;
 
 public class ServletContenedor extends HttpServlet
 {
-	//define vector
-	private Vector vector;
-
+	//Definicion del atributo control
 	private DAOEjercicio control;
 
 	public void init(ServletConfig config) throws ServletException
 	{
     	super.init(config);
-		//inicializar la dimension del vector y su taza de crecimiento
 
-		this.vector = new Vector(10,1);
+    	//Inicializacion del atributo control
 		this.control = new DAOEjercicio();
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
 	{
+		/**
+		*
+		* Implementacion de una Peticion (request) por el metodo Get
+		* En dado caso de ser consultado el ServletContenedor por dicho metodo
+		* hara una redireccion (sendRedirect) a la pagina de inicio
+		*
+		**/
 		response.sendRedirect("/tarea3/index.html");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 											throws ServletException, IOException
 	{
+		/**
+		*
+		* Implementacion de una Peticion (request) por el metodo Post
+		* En dado caso de ser consultado el ServletContenedor por dicho metodo
+		* verificara la operacion, en base a ella utilizara los metodos del
+		* atributo (obj) control para mandar traer las operaciones en la BD
+		* el resultado de cualquier metodo de control lo asiganara como nuevo
+		* atributo en la peticion (request) para ser utilizado por
+		* ServletProcesamientoFinal
+		*
+		**/
 		ServletContext context = getServletContext();
         RequestDispatcher rd = context.getRequestDispatcher("/ServletProcesamientoFinal");
 
@@ -75,54 +92,6 @@ public class ServletContenedor extends HttpServlet
 		}
 		this.control.desconectar(conexion);
 		rd.forward(request, response);
-	}
-
-	public Boolean agregarUsuario(Usuario user)
-	{
-		/**
-		*Metodo agregarUsuario recibe un parametro usr(objeto) de la clase Usuario
-		*Corresponde al paquete ejercici2
-		*Se encargara de agregar un objeto Usuario al vector
-		***/
-		this.vector.addElement(user);
-		return true;
-
-	}
-
-	public Usuario consultarUsuario(Usuario user)
-	{
-		/**
-		*Metodo consultarUsuario recibe un parametro Usuario(usuario)
-		*para user su metodo getID y compararlo con el obj(objeto usuario) que
-		*esta en el vector
-		***/
-
-		for(int i=0; i<this.vector.size(); i++){
-			Usuario obj = (Usuario) this.vector.elementAt(i);
-			String idUsuario = obj.getId();
-           	if(idUsuario.equals(user.getId())){
-   				return obj;
-            }	
-        }
-        return null;
-	}
-
-	public Boolean eliminarUsuario(Usuario user)
-	{
-		/**
-		*Metodo eliminarUsuario recibe un paremtro Usuario(usuario)
-		*para compararlo al iterar el vector y eliminar el usuario correspondiente
-		***/
-
-		for(int i=0; i<this.vector.size(); i++){
-			Usuario obj = (Usuario)this.vector.elementAt(i); 
-			String idObj = obj.getId();
-          	if(idObj.equals(user.getId())){
-           		vector.removeElement(obj);
-           		return true;
-           	}		
-        }
-        return false;
 	}
 
 }

@@ -18,7 +18,14 @@ public class ServletControlador extends HttpServlet
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 											throws ServletException, IOException
 	{
-		
+		/**
+		*
+		* Implementacion de una Peticion (request) por el metodo Post
+		* recibe la peticion y de acuerdo a la operacion hace alguna accion
+		* asigna un nuevo parametro a la peticion (request) y lo envia por
+		* Forward a ServletContenedor
+		*
+		**/
 
 		//Codigo para poder realizar el forward
 		ServletContext context = getServletContext();
@@ -38,7 +45,6 @@ public class ServletControlador extends HttpServlet
 			String login = request.getParameter("login");
 			String password = request.getParameter("password");
 
-			//System.out.println("controlador " + id + login + password);
 			
 			if(operacion.equals("alta"))
 			{
@@ -47,8 +53,6 @@ public class ServletControlador extends HttpServlet
 				user.setId(id);
 				user.setLogin(login);
 				user.setPassword(password);
-				
-				System.out.println("controlador user " + user.getId() + user.getLogin() + user.getPassword());
 
 				request.setAttribute("user", user);
 				
@@ -68,6 +72,7 @@ public class ServletControlador extends HttpServlet
 				
 			}else
 			{
+				//no hubo parametros, automaticamente manda a traer mostrarTodos los usuarios
 				System.out.println("no hubo parametros");
 			}
        		rd.forward(request, response);

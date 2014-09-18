@@ -40,18 +40,8 @@
         <servlet-name>ServletProcesamientoFinal</servlet-name>
         <url-pattern>/ServletProcesamientoFinal</url-pattern>
     </servlet-mapping>
-        
-    
-    
-    <servlet>
-        <servlet-name>control</servlet-name>
-        <servlet-class>tarea3.control</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>control</servlet-name>
-        <url-pattern>/control</url-pattern>
-    </servlet-mapping> 
+         
+    <!--TERMINAN MIS RUTAS DE APLICACION-->
     
     <resource-ref>
         <description>DB Connection</description>
@@ -60,7 +50,6 @@
         <res-auth>Container</res-auth>
     </resource-ref> 
 
-    <!--TERMINAN MIS RUTAS DE APLICACION-->
 
 
     <welcome-file-list>
